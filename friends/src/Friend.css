@@ -1,7 +1,8 @@
 .Friend {
     width: 500px;
     height: 300px;
-    border: 2px solid black;
+    border: 3px solid black;
+    background-color: cyan;
     border-radius: 6px;
     margin: 20px auto;
     display: flex;
@@ -11,13 +12,16 @@
   .Friend h1 {
     width: 100%;
     text-align: center;
+    padding-top: 25px;
   }
   
   .Friend h4 {
     margin: 0 10px;
+    padding: 0 0 15px 10px;
+
   }
   
   .age, .email {
     width: 100%;
-    display: flex;
+    /* display: flex; */
   }

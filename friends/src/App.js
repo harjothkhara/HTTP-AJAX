@@ -1,24 +1,31 @@
 import React from 'react';
 import './App.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {  
+      friends:[]
+    }
+  }
+
+componentDidMount() {
+  axios.get(`http://localhost:5000/friends`)
+    .then(req => {
+      this.setState({ friends: req.data })
+    })
+    .catch(req => {console.log(req.statusText)})
 }
 
+  render() { 
+    return (  
+      <div>
+        {this.state.friends.map(item => <div key={item.id}> <h1>{item.name}</h1></div> )}
+      </div>
+
+    );
+  }
+}
+ 
 export default App;

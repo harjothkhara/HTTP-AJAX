@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import Friend from './Friend';
+import FriendForm from './FriendForm';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {  
-      friends:[]
-    }
+  state = {
+    friends: []
   }
 
 componentDidMount() {
@@ -22,7 +20,8 @@ componentDidMount() {
   render() { 
     return (  
       <div className="App">
-        {this.state.friends.map(item => <Friend key={item.id} data={item} /> )}
+        {this.state.friends.map(friend => <Friend key={friend.id} data={friend} /> )}
+        <FriendForm />
       </div>
 
     );
